@@ -8,7 +8,7 @@ const VerticalList = ({title, data}) => {
         <View>
             <Title>{title}</Title>
             <View style={styles.container}>
-                {data.map(item => <FlatCard item={item} key={item.id} />)}
+                {data.map(item => <FlatCard item={item} />)}
             </View>
         </View>
     )

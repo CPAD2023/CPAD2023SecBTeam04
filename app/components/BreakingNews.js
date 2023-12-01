@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import HorizontalList from './HorizontalList';
 
 const BreakingNews = ({data}) => {
@@ -7,9 +6,5 @@ const BreakingNews = ({data}) => {
         <HorizontalList title='BreakingNews' data={data} />
     )
 }
-
-const styles = StyleSheet.create({
-    container: {}
-})
 
 export default BreakingNews;

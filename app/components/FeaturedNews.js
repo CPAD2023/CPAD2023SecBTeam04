@@ -1,9 +1,12 @@
 import React from 'react';
 import BlockCard from './BlockCard';
+import { FlatList } from 'react-native';
 
-const FeaturedNews = ({item}) => {
+const FeaturedNews = ({data}) => {
     return(
-        <BlockCard item={item} />
+        <FlatList data={data}  horizontal 
+                    showsHorizontalScrollIndicator={false} 
+                    renderItem={({item}) => <BlockCard item={item} /> } />
     )
 }
 
