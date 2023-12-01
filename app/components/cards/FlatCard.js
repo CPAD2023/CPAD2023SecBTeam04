@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import Title from './Title';
-import Subtitle from './Subtitle';
+import Title from '../common/Title';
+import Subtitle from '../common/Subtitle';
+import { fallbackImage } from '../../../api/newsDB'
 
 const FlatCard = ({item}) => {
-    const {thumbnail, title, desc} = item;
+    const {urlToImage, title, description} = item;
     return(
         <View style={[styles.container]}>
-            <Image source={{uri: thumbnail}} style={[styles.image]} />
+            <Image source={{uri: urlToImage ? urlToImage : fallbackImage}} style={[styles.image]} />
             <View style={styles.contentContainer}>
                 <Title>{title}</Title>
-                <Subtitle>{desc}</Subtitle>
+                <Subtitle>{description}</Subtitle>
             </View>
         </View>
     )

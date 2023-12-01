@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './app/components/SearchBar';
-import Screen from './app/components/Screen';
+import Screen from './app/components/common/Screen';
 import FeaturedNews from './app/components/FeaturedNews';
 import BreakingNews from './app/components/BreakingNews';
 import TechNews from './app/components/TechNews';

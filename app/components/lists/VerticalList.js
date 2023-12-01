@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Title from './Title';
-import FlatCard from './FlatCard';
+import Title from '../common/Title';
+import FlatCard from '../cards/FlatCard';
 
 const VerticalList = ({title, data}) => {
     return(

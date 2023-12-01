@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockCard from './BlockCard';
+import BlockCard from './cards/BlockCard';
 import { FlatList } from 'react-native';
 
 const FeaturedNews = ({data}) => {
