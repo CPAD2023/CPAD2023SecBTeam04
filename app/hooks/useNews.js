@@ -14,7 +14,7 @@ const useNews = () => {
     }
 
     const getBreakingNewsTop = async() => {
-        const data = await fetchHeadlinesByCategory('business', 5);
+        const data = await fetchHeadlinesByCategory('general', 5);
         if(data && data.articles) setBreakingNews(data.articles);
     };
 
