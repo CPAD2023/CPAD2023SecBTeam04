@@ -4,6 +4,7 @@ import { Dimensions, StyleSheet, ScrollView, View, Image } from "react-native";
 import Close from "../common/Close";
 import Title from "../common/Title";
 import Subtitle from "../common/Subtitle";
+import Hyperlink from 'react-native-hyperlink';
 
 export default function NewsDetail ({ route }) {
   const { title: title, description: description, urlToImage: urlToImage, content: content, url: url} = route.params.item;
@@ -20,7 +21,9 @@ export default function NewsDetail ({ route }) {
             <Subtitle numberOfLines={20} size={25}>{description}</Subtitle>
             <Title>Content:</Title>
             <Subtitle numberOfLines={20}>{content}</Subtitle>
-            <Title>For full article : {url}</Title>
+            <Title>
+              Click for full article: <Hyperlink linkDefault={true}>{url}</Hyperlink>
+            </Title>
           </View>
         </View>
       </ScrollView>
