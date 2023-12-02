@@ -60,4 +60,4 @@ export const fetchTrendingByCountry = (country, limit) => {
     return apiCall(topHeadlines, fetchByCountry(country, limit));
 }
 
-export const fallbackImage = 'https://www.google.co.in/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANo-Image-Placeholder.svg&psig=AOvVaw2zd7edTsygSmBE-DCScTa6&ust=1701558548105000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJishtmt74IDFQAAAAAdAAAAABAD'
+export const fallbackImage = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freeiconspng.com%2Fimages%2Fno-image-icon&psig=AOvVaw0JCI3S1YXFxdbk_6WHcaLC&ust=1701587526023000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiz8NOZ8IIDFQAAAAAdAAAAABAD'

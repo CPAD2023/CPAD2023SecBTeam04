@@ -15,12 +15,12 @@ const HorizontalList = ({title, data}) => {
             </View>
         </>
     )
-}
+};
 
 const styles = StyleSheet.create({
     listStyle: {
         marginVertical: 15
     }
-})
+});
 
 export default HorizontalList;

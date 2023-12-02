@@ -7,6 +7,6 @@ const Subtitle = ({children, numberOfLines = 2, size = 15}) => {
             {children}
         </Text>
     )
-}
+};
 
 export default Subtitle;

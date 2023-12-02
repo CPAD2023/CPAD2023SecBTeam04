@@ -7,6 +7,6 @@ const Title = ({children, numberOfLines = 2, size = 18}) => {
             {children}
         </Text>
     )
-}
+};
 
 export default Title;

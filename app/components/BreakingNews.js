@@ -5,6 +5,6 @@ const BreakingNews = ({data}) => {
     return(
         <HorizontalList title='BreakingNews' data={data} />
     )
-}
+};
 
 export default BreakingNews;

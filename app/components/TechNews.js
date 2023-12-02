@@ -5,6 +5,6 @@ const TechNews = ({data}) => {
     return(
         <HorizontalList title='TechNews' data={data} />
     )
-}
+};
 
 export default TechNews;

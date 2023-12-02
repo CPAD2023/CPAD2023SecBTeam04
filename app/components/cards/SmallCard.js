@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import BlockCard from './BlockCard';
+import { useNavigation } from '@react-navigation/native';
 
 const SmallCard = ({item}) => {
+    const navigation = useNavigation();
     return(
-        <BlockCard  item={item} style={styles.container} imageStyle={styles.image} />
+        <BlockCard onPress={() => navigation.navigate('NewsDetail', { item })} item={item} style={styles.container} imageStyle={styles.image} />
     )
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -17,6 +19,6 @@ const styles = StyleSheet.create({
     image: {
         height: 220
     }
-})
+});
 
 export default SmallCard;
