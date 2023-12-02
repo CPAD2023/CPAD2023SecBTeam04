@@ -18,11 +18,11 @@ const HomeScreen = () => {
 
     return (
         <Screen>
-            <SearchBar />
+            {/* <SearchBar /> */}
             <FeaturedNews data={featuredNews} />
-            <BreakingNews data={breakingNews} />
-            <PoliticalNews data={politicalNews} />
             <TechNews data={techNews} />
+            <PoliticalNews data={politicalNews} />
+            <BreakingNews data={breakingNews} />
             <EntertainmentNews data={entertainmentNews} />
         </Screen>
     );

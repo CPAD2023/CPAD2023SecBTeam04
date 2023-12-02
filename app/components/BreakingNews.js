@@ -3,7 +3,7 @@ import HorizontalList from './lists/HorizontalList';
 
 const BreakingNews = ({data}) => {
     return(
-        <HorizontalList title='BreakingNews' data={data} />
+        <HorizontalList title='General News' data={data} />
     )
 };
 
