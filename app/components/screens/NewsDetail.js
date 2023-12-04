@@ -16,10 +16,10 @@ export default function NewsDetail ({ route }) {
         <View style= {styles.container}>
           <Image source={{ uri: urlToImage ? urlToImage : fallbackImage }} style= {styles.image} />
           <View style= {styles.contentContainer}>
-            <Title numberOfLines={5} size={30}>{title}</Title>
-            <Title size={25}>Description:</Title>
-            <Subtitle numberOfLines={20} size={25}>{description}</Subtitle>
-            <Title>Content:</Title>
+            <Title numberOfLines={5} size={20}>{title}</Title>
+            {/* <Title size={25}>Description:</Title> */}
+            <Subtitle numberOfLines={20} size={15}>{description}</Subtitle>
+            {/* <Title>Content:</Title> */}
             <Subtitle numberOfLines={20}>{content}</Subtitle>
             <Title>
               Click for full article: <Hyperlink linkDefault={true}>{url}</Hyperlink>

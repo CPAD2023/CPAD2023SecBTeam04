@@ -1,9 +1,9 @@
 import React from 'react';
 import VerticalList from './lists/VerticalList';
 
-const PoliticalNews = ({data}) => {
+const PoliticalNews = ({data, title="Political News"}) => {
     return(
-       <VerticalList title="Political News" data={data} />
+       <VerticalList title={title} data={data} />
     )
 };
 
