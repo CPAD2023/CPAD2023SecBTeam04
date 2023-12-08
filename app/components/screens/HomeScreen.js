@@ -25,7 +25,7 @@ const HomeScreen = () => {
         <Screen>
             <StatusBar style="light" />
             <View style={tw`flex-row justify-between items-center`}>
-                <Text style={tw`text-black text-3xl font-bold ml-80`}>NEWS APP</Text>
+                <Text style={tw`text-black text-3xl font-bold ml-20`}>NEWS APP</Text>
                 <TouchableOpacity style={tw`mr-3`} onPress={() => navigation.navigate('SearchBar')}>
                     <MagnifyingGlassIcon size="30" strokeWidth={2} color="black" />
                 </TouchableOpacity>

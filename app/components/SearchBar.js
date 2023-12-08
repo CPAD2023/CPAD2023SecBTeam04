@@ -6,11 +6,10 @@ import { View, TextInput, Dimensions, Image, ScrollView, TouchableOpacity } from
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { XMarkIcon } from 'react-native-heroicons/outline';
 import tw from 'twrnc';
-import { fetchEverythingByKeyword } from '../../api/newsDB';
+import { fetchEverythingByKeyword, newsSearchIcon } from '../../api/newsDB';
 import Loading from '../components/common/Loading';
 import PoliticalNews from '../components/PoliticalNews';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect } from 'react';
 
 const {width, height} = Dimensions.get('window');
 const memoizedFetchEverything = memoize(fetchEverythingByKeyword);
@@ -88,7 +87,7 @@ export default function SearchBar() {
                         </ScrollView>
                     ) : (
                         <View style={tw`flex-row justify-center`}>
-                            <Image source={require('../../assets/newsSearch.png')} style={tw`h-96 w-96`} />
+                            <Image source={{uri: newsSearchIcon}} style={tw`h-96 w-96`} />
                         </View>
                     )
                 )

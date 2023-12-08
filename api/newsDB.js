@@ -60,4 +60,5 @@ export const fetchTrendingByCountry = (country, limit) => {
     return apiCall(topHeadlines, fetchByCountry(country, limit));
 }
 
-export const fallbackImage = require('../assets/no-image-icon-23.jpg')
+export const fallbackImage = 'https://cdn2.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.jpg'
+export const newsSearchIcon = 'https://images.vexels.com/media/users/3/131565/isolated/preview/6336e0a867e8e05840058fb533d1b759-newspaper-search-icon.png';
