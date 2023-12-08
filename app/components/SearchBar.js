@@ -18,11 +18,9 @@ const memoizedFetchEverything = memoize(fetchEverythingByKeyword);
 export default function SearchBar() {
     const [items, setItems] = useState([]);
     const navigation = useNavigation();
-    const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = async search => {
         setLoading(true);
-        setSearchTerm(search);
         console.log(search);
         if (search && search.length > 2) {
             try {
@@ -60,18 +58,6 @@ export default function SearchBar() {
                 console.error('Error fetching data:', error);
             });
     };
-
-    useEffect(() => {
-        const updateCache = () => {
-            if (searchTerm) {
-                fetchDataAndUpdateCache(searchTerm);
-            }
-        };
-
-        const interval = setInterval(updateCache, 30 * 60 * 1000); // 30 minutes
-
-        return () => clearInterval(interval);
-    }, [searchTerm]);
 
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
     const [loading, setLoading] = useState(false);
