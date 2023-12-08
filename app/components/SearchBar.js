@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { debounce } from 'lodash';
+import memoize from 'lodash/memoize';
 import React, { useCallback, useState } from 'react';
 import { View, TextInput, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,31 +9,69 @@ import tw from 'twrnc';
 import { fetchEverythingByKeyword } from '../../api/newsDB';
 import Loading from '../components/common/Loading';
 import PoliticalNews from '../components/PoliticalNews';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect } from 'react';
 
 const {width, height} = Dimensions.get('window');
+const memoizedFetchEverything = memoize(fetchEverythingByKeyword);
 
 export default function SearchBar() {
-    console.log("Inside Search Bar...");
     const [items, setItems] = useState([]);
     const navigation = useNavigation();
+    const [searchTerm, setSearchTerm] = useState('');
 
-    const handleSearch = search => {
-        console.log("Inside handleSearch block...");
+    const handleSearch = async search => {
         setLoading(true);
+        setSearchTerm(search);
         console.log(search);
         if (search && search.length > 2) {
-            fetchEverythingByKeyword(search, 5)
-            .then( data =>  {
-                console.log("Data incoming...");
+            try {
+                const cachedData = await AsyncStorage.getItem(search);
+                if (cachedData) {
+                    console.log("Retrieving results from cache...");
+                    setLoading(false);
+                    setItems(JSON.parse(cachedData));
+                } else {
+                    fetchDataAndUpdateCache(search);
+                }
+            } catch (error) {
                 setLoading(false);
-                if(data && data.articles) setItems(data.articles);
-            })
+                console.error('AsyncStorage error:', error);
+            }
         } else {
             setLoading(false);
             setItems([]);
             console.log("No Data incoming...");
         }
     }
+
+    const fetchDataAndUpdateCache = (search) => {
+        memoizedFetchEverything(search, 5)
+            .then(data => {
+                console.log("Data incoming...");
+                setLoading(false);
+                if (data && data.articles) {
+                    setItems(data.articles);
+                    AsyncStorage.setItem(search, JSON.stringify(data.articles));
+                }
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error('Error fetching data:', error);
+            });
+    };
+
+    useEffect(() => {
+        const updateCache = () => {
+            if (searchTerm) {
+                fetchDataAndUpdateCache(searchTerm);
+            }
+        };
+
+        const interval = setInterval(updateCache, 30 * 60 * 1000); // 30 minutes
+
+        return () => clearInterval(interval);
+    }, [searchTerm]);
 
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
     const [loading, setLoading] = useState(false);
@@ -63,7 +102,7 @@ export default function SearchBar() {
                         </ScrollView>
                     ) : (
                         <View style={tw`flex-row justify-center`}>
-                            <Image source={require('../../assets/no-image-icon-23.jpg')} style={tw`h-96 w-96`} />
+                            <Image source={require('../../assets/newsSearch.png')} style={tw`h-96 w-96`} />
                         </View>
                     )
                 )

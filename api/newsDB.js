@@ -60,4 +60,4 @@ export const fetchTrendingByCountry = (country, limit) => {
     return apiCall(topHeadlines, fetchByCountry(country, limit));
 }
 
-export const fallbackImage = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freeiconspng.com%2Fimages%2Fno-image-icon&psig=AOvVaw0JCI3S1YXFxdbk_6WHcaLC&ust=1701587526023000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiz8NOZ8IIDFQAAAAAdAAAAABAD'
+export const fallbackImage = require('../assets/no-image-icon-23.jpg')
