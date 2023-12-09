@@ -2,15 +2,11 @@
 
 We have created a News App using React Native Technology and also learnt the technology step by step. The first version of the app had its own backend and was rendered using the pics and data stored in the backend. Later we enhanced the app making it dynamic via using Public API to fetch data, images and search results.
 
-We have created a News App using React Native Technology with the following features:
-
-
 
 Improvements suggested and implemented :
 1. Caching: This improves performance by storing the search results in local cache using Memoize functionality and reducing the number of API calls required to the render.
 
-Improvements we implemented :
-1. Live Search Feature based on Keywords. This is using a call to a public API which fetches the current results based on keywords.
+2. Live Search Feature based on Keywords. This is using a call to a public API which fetches the current results based on keywords.
 
 
 
@@ -25,5 +21,5 @@ Aishani Mukerji (2022SP93017) [Created Fork as it was not allowing to push direc
 Jahnvi (2022SP93079)
 
 
-Presentation and Video:
+Presentation and Video:\n
 Please find it under PPT and Video Folder
