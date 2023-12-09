@@ -21,5 +21,5 @@ Aishani Mukerji (2022SP93017) [Created Fork as it was not allowing to push direc
 Jahnvi (2022SP93079)
 
 
-Presentation and Video:\n
-Please find it under PPT and Video Folder
+Presentation and Video:
+/nPlease find it under PPT and Video Folder
