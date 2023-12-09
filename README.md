@@ -11,7 +11,7 @@ Improvements suggested and implemented :
 
 
 # Application: News App
-All the Combined work in merge in main branch.
+All the Combined work is merged in main branch.
 Team members :
 
 Kaushiki Bhattacharya (2022SP93001) [newsAppWithAPI]
