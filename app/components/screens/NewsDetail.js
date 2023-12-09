@@ -1,73 +1,53 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
+import { fallbackImage } from "../../../api/newsDB";
+import { Dimensions, StyleSheet, ScrollView, View, Image } from "react-native";
+import Close from "../common/Close";
+import Title from "../common/Title";
+import Subtitle from "../common/Subtitle";
+import Hyperlink from 'react-native-hyperlink';
 
-const LoginScreen = () => {
-    const navigation = useNavigation();
-    const [email, setEmail] = useState([1, 2, 3]);
-    const [password, setPassword] = useState([1, 2, 3]);
+export default function NewsDetail ({ route }) {
+  const { title: title, description: description, urlToImage: urlToImage, content: content, url: url} = route.params.item;
+  const navigation = useNavigation();
 
-    const handleLogin = () => {
-        if (email == 'kaushiki@sap.com' && password == 'qwerty') navigation.navigate('HomeScreen'); 
-    };
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.header}>Login</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-                autoCapitalize="none"
-                keyboardType="email-address"
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={(text) => setPassword(text)}
-                secureTextEntry
-            />
-            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
+  return (
+    <>
+      <ScrollView style= {styles.view}>
+        <View style= {styles.container}>
+          <Image source={{ uri: urlToImage ? urlToImage : fallbackImage }} style= {styles.image} />
+          <View style= {styles.contentContainer}>
+            <Title numberOfLines={5} size={20}>{title}</Title>
+            {/* <Title size={25}>Description:</Title> */}
+            <Subtitle numberOfLines={20} size={15}>{description}</Subtitle>
+            {/* <Title>Content:</Title> */}
+            <Subtitle numberOfLines={20}>{content}</Subtitle>
+            <Title>
+              Click for full article: <Hyperlink linkDefault={true}>{url}</Hyperlink>
+            </Title>
+          </View>
         </View>
-    );
+      </ScrollView>
+      <Close onPress={() => navigation.popToTop()} />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-    },
-    header: {
-        fontSize: 24,
-        marginBottom: 20,
-    },
-    input: {
-        width: '100%',
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        marginBottom: 15,
-    },
-    loginButton: {
-        backgroundColor: 'blue',
-        width: '100%',
-        height: 40,
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 16,
-    },
+  container: {
+    width: Dimensions.get('window').width ,
+    height: Dimensions.get('window').height,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#fff', 
+    justifyContent: 'center'
+},
+image: {
+    flex: 0.2,
+    width: '100%',
+    height: 200
+}, 
+contentContainer: {
+    flex: 0.8,
+    height: 250
+}
 });
-
-export default LoginScreen;
