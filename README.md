@@ -4,7 +4,7 @@ We have created a News App using React Native Technology and also learnt the tec
 
 
 Improvements suggested and implemented :
-1. Caching: This improves performance by storing the search results in local cache using Memoize functionality and reducing the number of API calls required to the render.
+1. Caching: This improves performance by storing the search results in local cache using Memoize functionality and reducing the number of API calls required to render.
 
 2. Live Search Feature based on Keywords. This is using a call to a public API which fetches the current results based on keywords.
 
