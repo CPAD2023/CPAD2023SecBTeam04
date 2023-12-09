@@ -60,4 +60,5 @@ export const fetchTrendingByCountry = (country, limit) => {
     return apiCall(topHeadlines, fetchByCountry(country, limit));
 }
 
-export const fallbackImage = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freeiconspng.com%2Fimages%2Fno-image-icon&psig=AOvVaw0JCI3S1YXFxdbk_6WHcaLC&ust=1701587526023000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiz8NOZ8IIDFQAAAAAdAAAAABAD'
+export const fallbackImage = 'https://cdn2.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.jpg'
+export const newsSearchIcon = 'https://images.vexels.com/media/users/3/131565/isolated/preview/6336e0a867e8e05840058fb533d1b759-newspaper-search-icon.png';
