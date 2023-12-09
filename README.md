@@ -22,4 +22,4 @@ Jahnvi (2022SP93079)
 
 
 Presentation and Video:
-/nPlease find it under PPT and Video Folder
+Please find it under PPT and Video Folder
